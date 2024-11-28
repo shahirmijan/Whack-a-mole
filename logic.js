@@ -1,30 +1,46 @@
-const squares = document.querySelectorAll('.square')
+var squares;
 var mole;
 var score = 0;
+var scoreDisplay;
+
+window.onload = () => {
+    squares = document.querySelectorAll('.square');
+    scoreDisplay = document.getElementById('score');
+    setScore();
+}
 
 setInterval(function () {
     nextMole = selectMole()
     setMole(nextMole)
-}, 2500);
+}, 2000);
 
 
 function selectMole(){
-    nextMole = Math.floor(Math.random() * 8);
-    return nextMole
+    nextMole = Math.floor(Math.random() * 9);
+    return nextMole;
 }
 
 
 function setMole( nextMole ){
     mole = document.querySelector('.mole')
-    mole.classList.remove("mole") 
-    mole.removeEventListener("mousedown", buttonClicked )
+
+    if(mole){
+        mole.classList.remove("mole")
+        mole.removeEventListener("mousedown", buttonClicked )
+    }
+
     squares[nextMole].classList.add("mole")
     squares[nextMole].addEventListener("mousedown", buttonClicked )
 }
 
+function setScore() {
+    scoreDisplay.innerHTML = score;
+}
 function buttonClicked(){
-    score++
-    console.log(score);
-    nextMole = selectMole()
-    setMole(nextMole)
+    score++;
+    setScore();
+
+    nextMole = selectMole();
+    setMole(nextMole);
+
 }

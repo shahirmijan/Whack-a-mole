@@ -1,5 +1,5 @@
-.container {
-    width: 400px;
+.mole-container {
+    max-width: 400px;
     height: 400px;
     display: flex;
     flex-wrap: wrap;
@@ -11,13 +11,17 @@
     height: 30%;
     border: 1px solid rgb(229, 229, 229);
     border-radius: 30px;
-    margin: 1%;
     box-shadow: 0 20px 56px #d8d9d9;
 }
 
 .mole {
     background-color: #0093E9;
     background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
-    transition: 0.3s ease-in;
+    transition: 0.2s ease-in;
     transform: scale(1.05);
+}
+
+.mole:hover {
+    cursor: pointer;
+    opacity: 0.5;
 }
